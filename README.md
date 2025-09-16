@@ -67,3 +67,10 @@ docker run -e NODE_ENV=production imageName:version
 2. On docker file 
 This is the most common way to bake environment variables directly into your Docker image. You use the ENV instruction in your Dockerfile.
 `ENV NODE_ENV=production`
+
+3. By giving the location of env file
+We can give the location of our env file in the lauch of a container that use the docker run command 
+`docker run --env-file=fileName imageName`
+
+### to watch the history of your previous instances 
+`docker container ls -a`

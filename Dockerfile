@@ -6,4 +6,4 @@ COPY . .
 
 CMD ["npm","run","start:dev"]
 
-ENV NODE_ENV=production
+# ENV NODE_ENV=production
