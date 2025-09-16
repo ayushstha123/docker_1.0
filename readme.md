@@ -40,4 +40,4 @@ In my docker file inside COPY command i have to put
 
 
 ### To run Docker Image
-`docker run imageName:version
+`docker run imageName:version`
