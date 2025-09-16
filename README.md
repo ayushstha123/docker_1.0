@@ -39,5 +39,19 @@ In my docker file inside COPY command i have to put
 `docker build . -t tagname:version`
 
 
-### To run Docker Image
+#### To run Docker Image
 `docker run imageName:version`
+
+
+#### To show Docker container
+`docker container ls`
+
+
+#### To show Docker container hidden lists
+`docker container ls -a`
+
+#### To run a new Docker container and open an interactive shell session inside that container 
+`docker run -it imageID /bin/sh`
+
+#### To forcefully delete a docker images  
+`docker rmi -f myNode:1.0`
