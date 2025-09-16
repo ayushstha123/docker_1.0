@@ -55,3 +55,15 @@ In my docker file inside COPY command i have to put
 
 #### To forcefully delete a docker images  
 `docker rmi -f myNode:1.0`
+
+### Setting up environment Variables
+1. On Run time 
+set environment variables when you launch a container using the docker run command. This is useful for sensitive information (like API keys) or configuration that might change between different deployments (e.g., development vs. production).
+
+```
+docker run -e NODE_ENV=production imageName:version
+```
+
+2. On docker file 
+This is the most common way to bake environment variables directly into your Docker image. You use the ENV instruction in your Dockerfile.
+`ENV NODE_ENV=production`
