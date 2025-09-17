@@ -2,8 +2,11 @@ FROM "node:24-alpine3.21"
 
 WORKDIR /app
 
-COPY . .
+COPY package.json .
+
+RUN npm install
+
+COPY . . 
 
 CMD ["npm","run","start:dev"]
 
-# ENV NODE_ENV=production

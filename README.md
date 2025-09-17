@@ -74,3 +74,44 @@ We can give the location of our env file in the lauch of a container that use th
 
 ### to watch the history of your previous instances 
 `docker container ls -a`
+
+### to remove all the image in one go
+`docker image rm $(docker image ls -q)`
+docker image ls -q lists all the id of the images thats available in your workstation
+
+
+### to remove container from id 
+`docker rm containerID`
+
+
+### Docker container life cycle
+1. Created: This is the initial state when you run docker create. A container is created from an image, but it's not yet running. It has a file system and configuration, but no processes are active.
+
+2. Running: When you start a created container using docker start or directly create and run it using docker run, it enters the running state. The main process defined in the container's image (e.g., CMD or ENTRYPOINT in the Dockerfile) is executed.
+
+3. Paused: You can temporarily suspend a running container using docker pause. This freezes all processes within the container, but its state is preserved in memory. It's still considered active but not executing.
+
+4. Unpaused: To resume a paused container, you use docker unpause. This brings the container back to the running state, and its processes continue from where they left off.
+
+5. Stopped: A running container can be stopped using docker stop. This sends a SIGTERM signal to the main process, allowing it to shut down gracefully. If the process doesn't exit within a timeout, a SIGKILL is sent. A stopped container's state is preserved on disk, meaning you can restart it later, and it will resume from its last saved state (unless volumes are involved).
+
+6. Exited: A container enters the exited state when its main process finishes execution (either successfully or due to an error) or when it's explicitly stopped. An exited container still exists on the system and can be inspected, restarted, or removed.
+
+### Running docker image using express
+so we can run our express server in docker environment by Tweaking our Dockerfile
+```
+FROM "node:24-alpine3.21"
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . . 
+
+CMD ["npm","run","start:dev"]
+```
+
+and after that we need to port mapping in our pc 
+`docker run -p 4000:4000 fbc88fed32c3`
