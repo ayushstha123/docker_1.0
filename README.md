@@ -115,3 +115,6 @@ CMD ["npm","run","start:dev"]
 
 and after that we need to port mapping in our pc 
 `docker run -p 4000:4000 fbc88fed32c3`
+
+### To stop the running container
+`docker ps` or `docker stop fbc88fed32c3`
