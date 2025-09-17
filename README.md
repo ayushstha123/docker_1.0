@@ -117,4 +117,4 @@ and after that we need to port mapping in our pc
 `docker run -p 4000:4000 fbc88fed32c3`
 
 ### To stop the running container
-`docker ps` or `docker stop fbc88fed32c3`
+`docker ps -a` to list  and delete the container or stop the container `docker stop containerID`
